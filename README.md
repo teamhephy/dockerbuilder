@@ -7,18 +7,18 @@
 
 Deis (pronounced DAY-iss) Workflow is an open source Platform as a Service (PaaS) that adds a developer-friendly layer to any [Kubernetes](http://kubernetes.io) cluster, making it easy to deploy and manage applications on your own servers.
 
-For more information about the Deis Workflow, please visit the main project page at https://github.com/deis/workflow.
+For more information about the Deis Workflow, please visit the main project page at https://github.com/deisthree/workflow.
 
 We welcome your input! If you have feedback, please [submit an issue][issues]. If you'd like to participate in development, please read the "Development" section below and [submit a pull request][prs].
 
-[issues]: https://github.com/deis/workflow/issues
-[prs]: https://github.com/deis/workflow/pulls
+[issues]: https://github.com/deisthree/workflow/issues
+[prs]: https://github.com/deisthree/workflow/pulls
 
 # About
 
 The Dockerbuilder downloads a git archive ([gzip](http://www.gzip.org/)ped [tar](https://www.gnu.org/software/tar/)ball) from a specified [S3 API compatible server][s3-api] and runs `docker build` on it. When the build is done, it runs `docker push` to push the resulting image to a specified [Docker](https://www.docker.com/) repository.
 
-This component is usually launched by the [Deis Builder](https://github.com/deis/builder) and used inside the Deis [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service), but it is flexible enough to be used as a pod inside any Kubernetes cluster.
+This component is usually launched by the [Deis Builder](https://github.com/deisthree/builder) and used inside the Deis [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service), but it is flexible enough to be used as a pod inside any Kubernetes cluster.
 
 # Development
 
@@ -30,6 +30,6 @@ The Deis project welcomes contributions from all developers. The high level proc
   * If your PR fixes any [issues][issues], make sure you write Fixes #1234 in your PR description (where #1234 is the number of the issue you're closing)
 * The Deis core contributors will review your code. After each of them sign off on your code, they'll label your PR with LGTM1 and LGTM2 (respectively). Once that happens, the contributors will merge it
 
-[issues]: https://github.com/deis/workflow/issues
-[prs]: https://github.com/deis/workflow/pulls
-[v2.18]: https://github.com/deis/workflow/releases/tag/v2.18.0
+[issues]: https://github.com/deisthree/workflow/issues
+[prs]: https://github.com/deisthree/workflow/pulls
+[v2.18]: https://github.com/deisthree/workflow/releases/tag/v2.18.0
