@@ -5,5 +5,5 @@ metadata:
   labels:
     heritage: deis
 data:
-  image: "quay.io/{{.Values.org}}/dockerbuilder:{{.Values.docker_tag}}"
+  image: "{{.Values.org}}/dockerbuilder:{{.Values.docker_tag}}"
   pullpolicy: {{ .Values.pull_policy }}
