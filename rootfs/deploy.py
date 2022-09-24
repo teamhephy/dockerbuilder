@@ -82,10 +82,41 @@ def download_file(tar_path):
     ]
     subprocess.check_call(command)
 
+def sanitize_env():
+    # Remove any environment variables that can affect the AWS SDK or the CLI
+    # See https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
+    sensitive_vars = [
+        'AWS_ACCESS_KEY_ID',
+        'AWS_CA_BUNDLE',
+        'AWS_CLI_AUTO_PROMPT',
+        'AWS_CLI_FILE_ENCODING',
+        'AWS_CONFIG_FILE',
+        'AWS_DATA_PATH',
+        'AWS_DEFAULT_OUTPUT',
+        'AWS_DEFAULT_REGION',
+        'AWS_EC2_METADATA_DISABLED',
+        'AWS_MAX_ATTEMPTS',
+        'AWS_METADATA_SERVICE_NUM_ATTEMPTS',
+        'AWS_METADATA_SERVICE_TIMEOUT',
+        'AWS_PAGER',
+        'AWS_PROFILE',
+        'AWS_REGION',
+        'AWS_RETRY_MODE',
+        'AWS_ROLE_ARN',
+        'AWS_ROLE_SESSION_NAME',
+        'AWS_SECRET_ACCESS_KEY',
+        'AWS_SESSION_TOKEN',
+        'AWS_SHARED_CREDENTIALS_FILE',
+        'AWS_STS_REGIONAL_ENDPOINTS',
+        'AWS_WEB_IDENTITY_TOKEN_FILE'
+    ]
+    for var in sensitive_vars
+        os.environ.pop(var, None)
 
 tar_path = os.getenv('TAR_PATH')
 if tar_path:
     if os.path.exists("/var/run/secrets/deis/objectstore/creds/"):
+        sanitize_env()
         download_file(tar_path)
     else:
         r = requests.get(tar_path)
